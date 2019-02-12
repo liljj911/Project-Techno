@@ -56,7 +56,9 @@ public class Pulse : MonoBehaviour {
                 radius < pulseDistance;
                 radius += speedOfPing * Time.deltaTime)
         {
+            lr.material.SetFloat("_ChangePoint", radius - .5f);
             Vector3 pulseOrigin = usePulseOrigin ? origin : transform.position;
+            lr.material.SetVector("_CentrePoint", pulseOrigin);
             for (int vertno = 0; vertno <= numVerts; vertno++)
             {
                 float angle = (vertno * Mathf.PI * 2) / numVerts;
